@@ -3,6 +3,21 @@
 
 ![alt text](https://accessmars.withgoogle.com/img/fbshare.jpg "Access Mars")
 
+### TL;DR
+
+Requires [Node.js](https://nodejs.org/) v18+ and [pnpm](https://pnpm.io/).
+
+```bash
+node -v              # confirm v18 or later
+npm install -g pnpm  # install pnpm if needed
+pnpm i               # install dependencies
+pnpm run start       # start dev server
+```
+
+See [Getting Started](#getting-started) for detailed setup instructions.
+
+---
+
 This is an experiment, not an official Google product. We will do our best to support and maintain this experiment but your mileage may vary.
 
 ### Background
