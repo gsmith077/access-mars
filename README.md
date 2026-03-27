@@ -28,10 +28,46 @@ Our fork of Three.js implements a progressive JPEG decoding scheme originally ou
 
 These high-resolution textures are loaded using the progressive decoding scheme, which allows us to load a large texture without disrupting the render thread. An empty texture of the correct size is allocated before the rendering process begins. This avoids the usual stutter experienced when allocating a new texture during runtime. The desired JPEG is then decoded in 32x32 blocks of pixels at a time, and this data is sent to the texture we allocated earlier. Using the [texSubImage2D](https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texSubImage2D) function, only the relevant 32x32 portion of the texture is updated at once. The decoding itself is done in a [WebWorker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API), which uses an [emscripten](https://github.com/kripken/emscripten) version of [libjpeg](http://ijg.org/) to decode the JPEG manually.
 
-### Building
-Install node and browserify if you haven't already `npm install`
+### Getting Started
 
-Running `npm run start` will spin up a local Budo server for development. The URL will be given in the terminal.
+**1. Install Node.js**
+
+This project requires Node.js v18 or later. Download it from [nodejs.org](https://nodejs.org/) or use a version manager like [nvm](https://github.com/nvm-sh/nvm):
+
+```bash
+nvm install 18
+nvm use 18
+```
+
+Verify your installation:
+```bash
+node -v   # should print v18.x.x or later
+```
+
+**2. Install pnpm**
+
+```bash
+npm install -g pnpm
+```
+
+Verify:
+```bash
+pnpm -v
+```
+
+**3. Install dependencies**
+
+```bash
+pnpm i
+```
+
+**4. Start the development server**
+
+```bash
+pnpm run start
+```
+
+The URL will be printed in the terminal. Open it in your browser to explore.
 
 ### Contributors
 This is not an official Google product, but an experiment that was a collaborative effort by friends from [NASA JPL Ops Lab](https://opslab.jpl.nasa.gov/) and Creative Lab.
