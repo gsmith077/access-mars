@@ -4,15 +4,15 @@
   "description": "",
   "license": "Apache-2.0",
   "scripts": {
-    "start": "npm run build-css && npm run budo",
+    "start": "pnpm run build-css && pnpm run budo",
     "build": "browserify src/js/vr.js > public/js/vr.js",
     "buildmin": "browserify -g uglifyify src/js/vr.js > public/js/vr.js",
-    "build-css": "node-sass --include-path scss src/scss/main.scss public/css/vr.css",
+    "build-css": "sass --load-path=scss src/scss/main.scss public/css/vr.css",
     "budo": "budo src/js/vr.js:js/vr.js --dir ./public --live --verbose --port 3002",
     "discify": "browserify --full-paths src/js/vr.js | discify --open",
     "build-dev": "( cd node_modules/three && npm run build-uglify ) && ( cd node_modules/aframe && npm run dist )",
     "deploy-all": "( cd node_modules/three && npm run build-uglify ) && ( cd node_modules/aframe && npm run dist ) && npm run build && gcloud app deploy -q",
-    "deploy": "npm run build-css && npm run build && gcloud app deploy -q"
+    "deploy": "pnpm run build-css && pnpm run build && gcloud app deploy -q"
   },
   "dependencies": {
     "aframe": "googlecreativelab/aframe#v0.6.0c-mod",
@@ -35,10 +35,11 @@
     "babel-preset-stage-2": "^6.22.0",
     "babelify": "^7.3.0",
     "browserify": "^14.0.0",
+    "browserify-css": "^0.15.0",
     "budo": "^9.4.7",
     "derequire": "^2.0.3",
     "discify": "^1.6.0",
-    "node-sass": "^4.5.3"
+    "sass": "^1.77.0"
   },
   "keywords": [
     "vr",
@@ -55,5 +56,48 @@
         }
       ]
     ]
+  },
+  "pnpm": {
+    "overrides": {
+      "js-yaml@<3.13.0": ">=3.13.0",
+      "tunnel-agent@<0.6.0": ">=0.6.0",
+      "qs@<6.0.4": ">=6.0.4",
+      "clean-css@<4.1.11": ">=4.1.11",
+      "uglify-js@<2.6.0": ">=2.6.0",
+      "uglify-js@<2.4.24": ">=2.4.24",
+      "three@<0.125.0": ">=0.125.0",
+      "minimatch@<3.0.2": ">=3.0.2",
+      "debug@<2.6.9": ">=2.6.9",
+      "js-yaml@<3.13.1": ">=3.13.1",
+      "hawk@<9.0.1": ">=9.0.1",
+      "trim-newlines@<3.0.1": ">=3.0.1",
+      "minimist@>=1.0.0 <1.2.3": ">=1.2.3",
+      "merge@<2.1.1": ">=2.1.1",
+      "minimatch@<3.0.5": ">=3.0.5",
+      "json5@<1.0.2": ">=1.0.2",
+      "minimist@>=1.0.0 <1.2.6": ">=1.2.6",
+      "tough-cookie@<4.1.3": ">=4.1.3",
+      "braces@<3.0.3": ">=3.0.3",
+      "micromatch@<4.0.8": ">=4.0.8",
+      "body-parser@<1.20.3": ">=1.20.3",
+      "diff@<3.5.0": ">=3.5.0",
+      "qs@<6.2.4": ">=6.2.4",
+      "qs@>=6.4.0 <6.4.1": ">=6.4.1",
+      "cross-spawn@<6.0.6": ">=6.0.6",
+      "hoek@<4.2.1": ">=4.2.1",
+      "lodash@<4.17.5": ">=4.17.5",
+      "lodash@<4.17.21": ">=4.17.21",
+      "lodash@<4.17.11": ">=4.17.11",
+      "lodash@<4.17.12": ">=4.17.12",
+      "lodash@>=3.7.0 <4.17.19": ">=4.17.19",
+      "form-data@<2.5.4": ">=2.5.4",
+      "ms@<2.0.0": ">=2.0.0",
+      "diff@<3.5.1": ">=3.5.1",
+      "js-yaml@<3.14.2": ">=3.14.2",
+      "semver@>=2.0.0-alpha <5.7.2": ">=5.7.2",
+      "minimatch@<3.1.3": ">=3.1.3",
+      "minimatch@<3.1.4": ">=3.1.4",
+      "qs@<6.14.1": ">=6.14.1"
+    }
   }
 }
