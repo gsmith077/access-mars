@@ -1,7 +1,5 @@
 # Access Mars
-[Access Mars](https://accessmars.withgoogle.com) is a collaboration between NASA, Jet Propulsion Lab, and Google Creative Lab to bring the real surface of Mars to your browser. It is an open source project released as a [WebVR Experiment](http://webvrexperiments.com).
-
-![alt text](https://accessmars.withgoogle.com/img/fbshare.jpg "Access Mars")
+[Access Mars](https://experiments.withgoogle.com/access-mars) is a collaboration between NASA, Jet Propulsion Lab, and Google Creative Lab to bring the real surface of Mars to your browser. It is an open source project released as a [WebVR Experiment](https://experiments.withgoogle.com/collection/webvr).
 
 ### TL;DR
 
